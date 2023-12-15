@@ -3,6 +3,22 @@
 import tkinter as tk
 import csv
 
+csv_file = "data.csv"
+markdown_file = "data.md"
+
+
+def create_markdown_table(csv_file):
+    with open(csv_file, newline="") as csvfile:
+        reader = csv.reader(csvfile)
+        table = "| " + " | ".join(next(reader)) + " |\n"
+        table += "| " + " | ".join(["---"] * len(next(reader))) + " |\n"
+
+        for row in reader:
+            table += "| " + " | ".join(row) + " |\n"
+
+    with open(markdown_file, "w") as mdfile:
+        mdfile.write(table)
+
 
 def save_to_csv():
     title = title_entry.get()
@@ -16,6 +32,7 @@ def save_to_csv():
         writer = csv.writer(file)
         writer.writerow([title, timeline, categories, description, link])
 
+    create_markdown_table(csv_file) 
     # Clear the entry fields after saving
     title_entry.delete(0, tk.END)
     timeline_entry.delete(0, tk.END)
