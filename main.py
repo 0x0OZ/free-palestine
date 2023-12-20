@@ -20,19 +20,22 @@ def create_markdown_table(csv_file):
         mdfile.write(table)
 
 
+def remove_newline(text):
+    return text.replace("\n", "")
+
+
 def save_to_csv():
-    title = title_entry.get()
-    timeline = timeline_entry.get()
-    categories = categories_entry.get()
-    description = description_entry.get()
-    link = link_entry.get()
-    link = link.replace("\n", "")
-    link = link.replace(",", ".")
+    title = remove_newline(title_entry.get())
+    timeline = remove_newline(timeline_entry.get())
+    categories = remove_newline(categories_entry.get())
+    description = remove_newline(description_entry.get())
+    link = remove_newline(link_entry.get())
+
     with open("data.csv", "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([title, timeline, categories, description, link])
 
-    create_markdown_table(csv_file) 
+    create_markdown_table(csv_file)
     # Clear the entry fields after saving
     title_entry.delete(0, tk.END)
     timeline_entry.delete(0, tk.END)
