@@ -13,7 +13,8 @@ The timeline associated with each resource varies, with some specifying a single
 - Documents: Includes any documents, researches, books, articles, or anything related to palestine, the occupation and jews 
 - Documentary: Includes documentaries about palestine, the occupation, and jews 
 - News: Includes newsletters, news posting websites, and influencers, and any other sources of news
-
+- Charity: Includes charity organizations and movements to provide aid, healthcare and food supply for people in Palestine
+- Boycott: Includes the israeli companies, organizations, and supporters to boycott
 
 #### Description
 A short description on the resource to summarize the resource content
